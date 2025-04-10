@@ -8,6 +8,6 @@ In order to implement the ideas in the paper, I reproduced the codes of 34 layer
 34 layers do not use dimension processing, while 101 layers do.
 I will make detailed comments in the code for learning.
 
-## ## Code and math comparison
+## Code and math comparison
 For the mathematical ideas in the code and how to use code to implement mathematical ideas, you can see it in **math to code.pdf** in this folder
 
