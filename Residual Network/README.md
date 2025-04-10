@@ -1,12 +1,13 @@
-## 论文解释：
-在这个文件夹中的Deep Residual Learning for Image Recognition Paper Notes.pdf 你可以看到我对这个论文的理解
+## Paper Explanation:
+In this folder, Deep Residual Learning for **Image Recognition Paper Notes.pdf**, you can see my understanding of this paper
 
-## 论文地址：https://arxiv.org/abs/1512.03385
+## Paper address：https://arxiv.org/abs/1512.03385
 
-## ResNet代码
-为了将论文中的思想实现，我复现了34层和101层的代码
-34层没有用到维度处理，101层是用维度处理的
-我会在代码中做详细的注释，以供学习。
-## 代码和数学对照
-对于代码中的数学思想和怎么用代码实现数学思想，在这个文件夹的math to code.pdf中可以看到
+## ResNet code
+In order to implement the ideas in the paper, I reproduced the codes of 34 layers and 101 layers.
+34 layers do not use dimension processing, while 101 layers do.
+I will make detailed comments in the code for learning.
+
+## ## Code and math comparison
+For the mathematical ideas in the code and how to use code to implement mathematical ideas, you can see it in **math to code.pdf** in this folder
 
