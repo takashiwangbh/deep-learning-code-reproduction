@@ -1,62 +1,121 @@
 # 深度学习源码复现
 
-这个仓库按论文和模型组织：**一个项目一个文件夹**。每个项目里有可读的源码和三部分中文说明：出处、提出者与意义；源码导航与直观解释；数学解释。建议从多层感知机开始，再按兴趣进入视觉、序列、生成或强化学习项目。
+按模型建立独立项目文件夹。每个项目都有可阅读的本地源码，以及介绍出处、源码和数学原理的三段式中文 README。建议从 001 开始，或直接点开感兴趣的模型。
 
-## 项目导航
+## 001–035 基础网络、经典视觉与序列
 
-### 基础
+- 001 [Perceptron（感知机）](Perceptron/README.md)
+- 002 [MLP（多层感知机）](Multilayer%20Perceptron/README.md)
+- 003 [CNN（卷积神经网络）](CNN/README.md)
+- 004 [Vanilla RNN（循环神经网络）](Vanilla%20RNN/README.md)
+- 005 [LSTM（长短期记忆网络）](LSTM/README.md)
+- 006 [GRU（门控循环单元）](GRU/README.md)
+- 007 [Autoencoder（自编码器）](Autoencoder/README.md)
+- 008 [Siamese Network（孪生网络）](Siamese%20Network/README.md)
+- 009 [Residual Learning（残差学习）](Residual%20Learning/README.md)
+- 010 [Self-Attention & Multi-Head Attention](Self-Attention/README.md)
+- 011 [LeNet-5](LeNet-5/README.md)
+- 012 [AlexNet](AlexNet/README.md)
+- 013 [VGG](VGG/README.md)
+- 014 [NiN（Network in Network）](NiN/README.md)
+- 015 [GoogLeNet / Inception](GoogLeNet/README.md)
+- 016 [ResNet](Residual%20Network/README.md)
+- 017 [DenseNet](DenseNet/README.md)
+- 018 [ResNeXt](ResNeXt/README.md)
+- 019 [SENet](SENet/README.md)
+- 020 [SqueezeNet](SqueezeNet/README.md)
+- 021 [MobileNet](MobileNet/README.md)
+- 022 [ShuffleNet](ShuffleNet/README.md)
+- 023 [Xception](Xception/README.md)
+- 024 [EfficientNet](EfficientNet/README.md)
+- 025 [ConvNeXt](ConvNeXt/README.md)
+- 026 [Word2Vec](Word2Vec/README.md)
+- 027 [GloVe](GloVe/README.md)
+- 028 [TextCNN](TextCNN/README.md)
+- 029 [BiLSTM](BiLSTM/README.md)
+- 030 [Seq2Seq](Seq2Seq/README.md)
+- 031 [Bahdanau Attention（加性注意力）](Bahdanau%20Attention/README.md)
+- 032 [TCN（时序卷积网络）](TCN/README.md)
+- 033 [WaveNet](WaveNet/README.md)
+- 034 [DeepAR](DeepAR/README.md)
+- 035 [N-BEATS](N-BEATS/README.md)
 
-- [Multilayer Perceptron](Multilayer%20Perceptron/README.md)：手写反向传播与完整训练循环。
-- [Optimization Algorithms](Optimization%20Algorithms/README.md)：SGD、动量与 Adam。
-- [Normalization Layers](Normalization%20Layers/README.md)：BatchNorm 与 LayerNorm。
+## 036–060 Transformer、检测与分割
 
-### 计算机视觉
+- 036 [Transformer](Transformer/README.md)
+- 037 [BERT](BERT/README.md)
+- 038 [GPT](GPT/README.md)
+- 039 [T5](T5/README.md)
+- 040 [Transformer-XL](Transformer-XL/README.md)
+- 041 [Longformer](Longformer/README.md)
+- 042 [Linformer](Linformer/README.md)
+- 043 [Performer](Performer/README.md)
+- 044 [Switch Transformer（混合专家模型）](Switch%20Transformer/README.md)
+- 045 [ViT（Vision Transformer）](Vision%20Transformer/README.md)
+- 046 [DeiT](DeiT/README.md)
+- 047 [Swin Transformer](Swin%20Transformer/README.md)
+- 048 [PVT（Pyramid Vision Transformer）](PVT/README.md)
+- 049 [MLP-Mixer](MLP-Mixer/README.md)
+- 050 [Perceiver](Perceiver/README.md)
+- 051 [Faster R-CNN](Faster%20R-CNN/README.md)
+- 052 [YOLO（YOLOv1）](YOLOv1/README.md)
+- 053 [SSD](SSD/README.md)
+- 054 [RetinaNet](RetinaNet/README.md)
+- 055 [DETR](DETR/README.md)
+- 056 [FCN（全卷积网络）](FCN/README.md)
+- 057 [U-Net](U-Net/README.md)
+- 058 [SegNet](SegNet/README.md)
+- 059 [DeepLab V3+](DeepLab%20V3+/README.md)
+- 060 [Mask R-CNN](Mask%20R-CNN/README.md)
 
-- [LeNet-5](LeNet-5/README.md)：从卷积和池化开始。
-- [AlexNet](AlexNet/README.md)：较深 CNN 与 ReLU。
-- [VGG](VGG/README.md)：反复堆叠小卷积核。
-- [GoogLeNet](GoogLeNet/README.md)：Inception 多尺度分支。
-- [Residual Network](Residual%20Network/README.md)：ResNet-34 的残差连接。
-- [U-Net](U-Net/README.md)：编码器与跳跃连接做分割。
-- [DenseNet](DenseNet/README.md)：逐层复用前面的特征。
-- [MobileNetV2](MobileNetV2/README.md)：轻量化卷积与倒残差。
-- [Vision Transformer](Vision%20Transformer/README.md)：把图像块当作 token。
-- [YOLOv1](YOLOv1/README.md)：单次前向的目标检测。
-- [SimCLR](SimCLR/README.md)：无标签图像的对比学习。
+## 061–078 生成模型
 
-### 序列与语言模型
+- 061 [DAE（去噪自编码器）](Denoising%20Autoencoder/README.md)
+- 062 [VAE（变分自编码器）](Variational%20Autoencoder/README.md)
+- 063 [CVAE（条件变分自编码器）](Conditional%20Variational%20Autoencoder/README.md)
+- 064 [VQ-VAE](VQ-VAE/README.md)
+- 065 [RealNVP](RealNVP/README.md)
+- 066 [Glow](Glow/README.md)
+- 067 [PixelCNN](PixelCNN/README.md)
+- 068 [GAN](GAN/README.md)
+- 069 [DCGAN](DCGAN/README.md)
+- 070 [WGAN-GP](WGAN-GP/README.md)
+- 071 [CGAN](CGAN/README.md)
+- 072 [pix2pix](pix2pix/README.md)
+- 073 [CycleGAN](CycleGAN/README.md)
+- 074 [SRGAN](SRGAN/README.md)
+- 075 [StyleGAN2](StyleGAN2/README.md)
+- 076 [DDPM](DDPM/README.md)
+- 077 [DDIM](DDIM/README.md)
+- 078 [LDM（潜在扩散模型）](Latent%20Diffusion/README.md)
 
-- [Recurrent Neural Networks](Recurrent%20Neural%20Networks/README.md)：RNN、LSTM 与 GRU 的状态更新。
-- [Attention Seq2Seq](Attention%20Seq2Seq/README.md)：翻译中的编码器、解码器与注意力。
-- [Transformer](Transformer/README.md)：自注意力与交叉注意力。
-- [GPT](GPT/README.md)：因果语言模型与小型训练例子。
-- [BERT](BERT/README.md)：双向编码器和掩码预测。
-- [Llama-style Language Model](Llama-style%20Language%20Model/README.md)：RoPE、GQA、RMSNorm 与 SwiGLU。
-- [LoRA](LoRA/README.md)：低秩参数高效微调。
+## 079–100 图、三维、自监督、强化学习与推荐
 
-### 生成、跨模态与图
+- 079 [GCN](GCN/README.md)
+- 080 [GraphSAGE](GraphSAGE/README.md)
+- 081 [GAT](GAT/README.md)
+- 082 [GIN](GIN/README.md)
+- 083 [PointNet](PointNet/README.md)
+- 084 [DGCNN](DGCNN/README.md)
+- 085 [NeRF](NeRF/README.md)
+- 086 [SimCLR](SimCLR/README.md)
+- 087 [MoCo](MoCo/README.md)
+- 088 [BYOL](BYOL/README.md)
+- 089 [DINO](DINO/README.md)
+- 090 [MAE](MAE/README.md)
+- 091 [CLIP](CLIP/README.md)
+- 092 [BLIP](BLIP/README.md)
+- 093 [DQN](DQN/README.md)
+- 094 [DDPG](DDPG/README.md)
+- 095 [A2C](A2C/README.md)
+- 096 [PPO](PPO/README.md)
+- 097 [SAC](SAC/README.md)
+- 098 [NCF](NCF/README.md)
+- 099 [Wide & Deep](Wide%20and%20Deep/README.md)
+- 100 [DeepFM](DeepFM/README.md)
 
-- [Autoencoder](Autoencoder/README.md)：压缩与重建。
-- [Variational Autoencoder](Variational%20Autoencoder/README.md)：潜变量、重参数化与 ELBO。
-- [DCGAN](DCGAN/README.md)：生成器与判别器的对抗训练。
-- [DDPM](DDPM/README.md)：逐步加噪与去噪。
-- [Latent Diffusion](Latent%20Diffusion/README.md)：在潜空间做文本条件扩散。
-- [DiT](DiT/README.md)：用 Transformer 预测扩散噪声。
-- [Flow Matching](Flow%20Matching/README.md)：学习从噪声到数据的速度场。
-- [CLIP](CLIP/README.md)：图文配对的对比学习。
-- [GCN](GCN/README.md)：图上的邻居信息聚合。
+## 补充项目
 
-### 现代模型组件
+[优化算法](Optimization%20Algorithms/README.md) · [归一化层](Normalization%20Layers/README.md) · [MobileNetV2](MobileNetV2/README.md) · [RNN/LSTM/GRU 对照](Recurrent%20Neural%20Networks/README.md) · [注意力 Seq2Seq](Attention%20Seq2Seq/README.md) · [Llama 风格语言模型](Llama-style%20Language%20Model/README.md) · [LoRA](LoRA/README.md) · [DiT](DiT/README.md) · [Flow Matching](Flow%20Matching/README.md) · [现代 Decoder](Modern%20Decoder/README.md) · [Mamba](Mamba/README.md) · [Gated DeltaNet](Gated%20DeltaNet/README.md) · [Gated DeltaNet-2](Gated%20DeltaNet-2/README.md) · [DPO](DPO/README.md)。
 
-- [Modern Decoder](Modern%20Decoder/README.md)：把 RoPE、GQA、SwiGLU 与稀疏专家组合起来。
-- [Mamba](Mamba/README.md)：选择性状态空间递推。
-- [Gated DeltaNet](Gated%20DeltaNet/README.md)：门控遗忘与定向记忆更新。
-- [Gated DeltaNet-2](Gated%20DeltaNet-2/README.md)：独立控制记忆的擦除与写入。
-- [DPO](DPO/README.md)：用成对偏好优化语言模型。
-
-### 深度强化学习
-
-- [DQN](DQN/README.md)：经验回放与目标网络。
-- [PPO](PPO/README.md)：优势估计与裁剪策略更新。
-
-安装依赖见 [requirements.txt](requirements.txt)；在仓库根目录运行 `python check_all.py` 可检查源码。示例使用小张量，没有预训练权重或论文性能指标。
+建议使用 Python 3.10 或更新版本。安装依赖见 [requirements.txt](requirements.txt)；运行 `python check_all.py` 检查源码。示例使用小规模随机输入，没有预训练权重或论文性能指标。

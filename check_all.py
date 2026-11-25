@@ -14,6 +14,11 @@ CHECKS = [
     "checks/test_generative.py",
     "checks/test_modern.py",
     "checks/test_reinforcement.py",
+    "checks/test_expansion_001_035.py",
+    "checks/test_expansion_036_060.py",
+    "checks/test_expansion_061_078.py",
+    "checks/test_expansion_079_100.py",
+    "checks/test_catalog.py",
 ]
 
 
