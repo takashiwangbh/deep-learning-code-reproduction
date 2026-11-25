@@ -18,7 +18,7 @@
 - [Optimization Algorithms（优化算法）](Optimization%20Algorithms/)
 - [Normalization Layers（归一化层）](Normalization%20Layers/)
 
-## 卷积视觉骨干
+## 卷积视觉模型
 
 - [LeNet-5](LeNet-5/)
 - [AlexNet](AlexNet/)
