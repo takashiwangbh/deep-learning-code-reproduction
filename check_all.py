@@ -18,6 +18,10 @@ CHECKS = [
     "checks/test_expansion_036_060.py",
     "checks/test_expansion_061_078.py",
     "checks/test_expansion_079_100.py",
+    "checks/test_factorization_machine.py",
+    "checks/test_classic_baselines.py",
+    "checks/test_language_baselines.py",
+    "checks/test_modern_baselines.py",
     "checks/test_catalog.py",
 ]
 
