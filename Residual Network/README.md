@@ -1,13 +1,14 @@
-## Paper Explanation:
-In this folder, Deep Residual Learning for **Image Recognition Paper Notes.pdf**, you can see my understanding of this paper
+# ResNet-34 残差网络
 
-## Paper address：https://arxiv.org/abs/1512.03385
+论文：[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)（2015）。
 
-## ResNet code
-In order to implement the ideas in the paper, I reproduced the codes of 34 layers and 101 layers.
-34 layers do not use dimension processing, while 101 layers do.
-I will make detailed comments in the code for learning.
+当前目录提供带中文注释的 [`ResNet-34 .py`](ResNet-34%20.py)。核心是 `BasicBlock` 中的 `F(x)+x` 跳跃连接；当空间尺寸或通道数改变时，代码使用 1×1 卷积投影 `identity`，使两条路径形状一致。四个 stage 的残差块数量为 `[3,4,6,3]`。
 
-## Code and math comparison
-For the mathematical ideas in the code and how to use code to implement mathematical ideas, you can see it in **math to code.pdf** in this folder
+从仓库根目录运行一个随机输入的形状和反向传播检查：
+
+```bash
+python 'Residual Network/ResNet-34 .py'
+```
+
+这里只提供 ResNet-34 源码；目录中暂未包含 ResNet-101 和论文笔记 PDF。其它视觉模型的学习顺序见 [源码学习路线](../Deep-Learning-Sourcebook/vision/README.md)。随机张量检查不代表论文性能复现。
 

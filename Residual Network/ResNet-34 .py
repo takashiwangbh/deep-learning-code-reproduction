@@ -125,3 +125,10 @@ class ResNet34(nn.Module):
         x = self.fc(x)              # [B, num_classes]
 
         return x
+
+
+if __name__ == "__main__":
+    model = ResNet34(num_classes=10)
+    logits = model(torch.randn(2, 3, 64, 64))
+    logits.sum().backward()
+    print("ResNet-34 logits:", tuple(logits.shape), "backward OK")
