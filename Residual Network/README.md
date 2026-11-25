@@ -1,14 +1,20 @@
-# ResNet-34 残差网络
+# Residual Network（ResNet-34）
 
-论文：[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)（2015）。
+## 1. 出处、提出者与意义
 
-当前目录提供带中文注释的 [`ResNet-34 .py`](ResNet-34%20.py)。核心是 `BasicBlock` 中的 `F(x)+x` 跳跃连接；当空间尺寸或通道数改变时，代码使用 1×1 卷积投影 `identity`，使两条路径形状一致。四个 stage 的残差块数量为 `[3,4,6,3]`。
+Kaiming He（何恺明）、Xiangyu Zhang、Shaoqing Ren 和 Jian Sun 在 [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)（2015）中提出深度残差网络。论文讨论了一个看似反常的问题：网络加深后，即使训练数据上的误差也可能变大，说明问题不只是过拟合，深层网络本身也更难优化。残差连接让一个块学习“需要对输入做的改动”，而不是每次都从头学完整映射。
 
-从仓库根目录运行一个随机输入的形状和反向传播检查：
+这里保留原仓库的 ResNet-34 教学源码。它是图像分类网络，也是以后读 U-Net 跳接、Transformer 残差连接以及许多现代网络时的基础。项目没有提供预训练权重或论文中的 ImageNet 训练结果。
 
-```bash
-python 'Residual Network/ResNet-34 .py'
-```
+## 2. 源码导航与直观解释
 
-这里只提供 ResNet-34 源码；目录中暂未包含 ResNet-101 和论文笔记 PDF。其它视觉模型的学习顺序见 [源码学习路线](../Deep-Learning-Sourcebook/vision/README.md)。随机张量检查不代表论文性能复现。
+[ResNet-34 .py](ResNet-34%20.py) 中先看 `BasicBlock.forward`：输入 `x` 分成两条路，一条经过两次 3×3 卷积、批归一化与 ReLU，另一条作为 `identity` 直接绕过卷积；最后两条路相加。再看 `ResNet34._make_layer`：当通道数或尺寸变化，捷径上的 1×1 卷积把 `identity` 投影到能与主路相加的形状。`ResNet34.forward` 则依次调用开头卷积、四组残差块、全局平均池化和分类层。
+
+从仓库根目录运行 `python 'Residual Network/ResNet-34 .py'`，会用随机 `[2,3,64,64]` 图像得到 `[2,10]` 类别分数并执行反向传播。正式 ImageNet 配置通常接收 `[B,3,224,224]`，默认分类头输出 `[B,1000]`。源码尾部的随机输入仅检查网络能计算，不代表训练好的识别效果。
+
+## 3. 数学解释
+
+普通块直接学习目标映射 `H(x)`；残差块改写为 `y = F(x) + x`，也就是让卷积路径学习 `F(x)=H(x)−x`。如果这一块暂时不需要改变信息，`F(x)` 接近 0 就能把输入传下去。源码中的 `out += identity` 正对应这个加法。反向传播时，输入梯度含有 `∂y/∂x = ∂F/∂x + I` 中的恒等项 `I`；即使卷积路径的梯度很小，捷径仍给梯度一条直接通路。
+
+加法要求两个张量形状一致。若主路把特征从 `[B,64,H,W]` 变为 `[B,128,H/2,W/2]`，原样的 `x` 就不能相加；`_make_layer` 用步长为 2 的 1×1 卷积把捷径也变为 `[B,128,H/2,W/2]`。这时数学式变成 `y=F(x)+W_s x`，`W_s` 是投影。ResNet-34 的四组块数为 `3,4,6,3`，每块两层卷积，再加开头卷积和最后全连接层，构成名称中的 34 层。
 
